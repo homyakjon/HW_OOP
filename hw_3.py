@@ -15,9 +15,10 @@ class Employee:
 
         working_days = 0
         current_day = beginning_of_month
-        while current_day <= current_date:
+
+        while working_days < days:
             if current_day.weekday() < 5:
-                working_days += days
+                working_days += 1
             current_day += timedelta(days=1)
 
         return working_days * self.salary_for_day
@@ -93,6 +94,6 @@ print(d2 != d1)
 print(d2 <= d1)
 
 employee = Employee(name="Yurii", salary_for_day=200.0)
-days_to_check = 30
+days_to_check = 10
 salary_result = employee.check_salary(days=days_to_check)
 print(f"Зарплата за {days_to_check} робочих днів: {salary_result}")
